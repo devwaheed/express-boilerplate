@@ -1,8 +1,10 @@
 var express  = require('express'),
     path     = require('path')
-		hbs			 = require('hbs'),
+	hbs			 = require('hbs'),
     app      = express();
 
+// get port
+const port = process.env.PORT || 3000;
 
 // setting view engine
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
@@ -20,6 +22,6 @@ app.get('/about', (req, res) => {
 	res.render("about.hbs")
 });
 
-app.listen(3000, () => {
-    console.log('Server is running at http://localhost:3000');
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
 });
